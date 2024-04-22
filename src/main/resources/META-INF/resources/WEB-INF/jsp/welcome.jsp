@@ -2,14 +2,16 @@
 	<head>
 		<title> Welcome Page</title>
 		<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" >
-		<script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-		<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
 	</head>
 	<body>
-		<div>
-			Welcome ${ name } to  the TODO APP!
+		<div class="container">
+			<h1>
+				Welcome ${ name } to  the TODO APP!
+			</h1>
+			<hr>
+			<a href="list-todos">Manage  your todos</a>
 		</div>
-		<hr>
-		<div><a href="list-todos">Manage</a> your todos</div>
+	<script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+	<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
 	</body>
 </html>
