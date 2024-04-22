@@ -13,8 +13,8 @@ public class TodoService {
 	static {
 		todos= new ArrayList<Todo>();
 		todos.add(new Todo(1,"Monias", "master Springboot",LocalDate.now().plusMonths(1),false));
-		todos.add(new Todo(1,"Monias", "master SpringSecurity",LocalDate.now().plusMonths(1),false));
-		todos.add(new Todo(1,"Monias", "master FullStack dev",LocalDate.now().plusMonths(1),false));
+		todos.add(new Todo(2,"Monias", "master SpringSecurity",LocalDate.now().plusMonths(1),false));
+		todos.add(new Todo(3,"Monias", "master FullStack dev",LocalDate.now().plusMonths(1),false));
 	}
 	
 	public List<Todo> findByUsername(String username)
