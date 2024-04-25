@@ -23,5 +23,7 @@ jobs:
       run: mvn clean install
     - name: test
       run: mvn test
-    - name: Build with Maven
+    - name: clean_install
       run: mvn clean install
+    - name: package with Maven
+      run: mvn -B package --file pom.xml
