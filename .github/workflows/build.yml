@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Cjeckout the repo
+      uses: actions/checkout@3
+      with:
+      	persist-credentials: false
+        ref: ${{ github.event.inputs.checkoutRef}}
     - uses: actions/checkout@v4
     - name: Set up JDK 21
       uses: actions/setup-java@4
