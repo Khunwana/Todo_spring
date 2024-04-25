@@ -1,7 +1,6 @@
 name: Springboot Tests
 on: [push]
 branches:
-– master
 -main
 
 jobs:
