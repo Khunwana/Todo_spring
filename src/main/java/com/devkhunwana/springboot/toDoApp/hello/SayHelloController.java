@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class SayHelloController {
 	
+	
+	
 	@RequestMapping("say-hello")
 	@ResponseBody
 	public String sayHello()
