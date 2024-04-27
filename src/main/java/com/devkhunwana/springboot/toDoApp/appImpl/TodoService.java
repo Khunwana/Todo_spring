@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.google.common.base.Predicate;
+
 @Service
 public class TodoService {
 	private static ArrayList<Todo> todos= new ArrayList<Todo>();;
@@ -26,5 +28,11 @@ public class TodoService {
 	public void addnewTodo(String username, String description, LocalDate targetDate, boolean done)
 	{
 		todos.add(new Todo(++todoCount,username,description,targetDate,done));
+	}
+	
+	public void deleteById(int id)
+	{
+		Predicate<? super Todo> predicate = todo -> todo.getId() == id;
+		todos.removeIf(predicate);
 	}
 }
