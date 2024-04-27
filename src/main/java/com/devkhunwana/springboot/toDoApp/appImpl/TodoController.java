@@ -48,7 +48,7 @@ public class TodoController {
 		}
 //		List<Todo> todos = todoService.findByUsername("Monias");
 //		model.addAttribute("todos", todos);\
-		todoService.addnewTodo(todo.getUsername(), todo.getDescription(), LocalDate.now().plusYears(1), false);
+		todoService.addnewTodo(todo.getUsername(), todo.getDescription(), todo.getTargetDate(), false);
 		return "redirect:list-todos";
 	}
 
