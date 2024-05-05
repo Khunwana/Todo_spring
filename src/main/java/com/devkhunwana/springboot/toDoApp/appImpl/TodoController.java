@@ -6,13 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jakarta.validation.Valid;
@@ -23,7 +22,13 @@ public class TodoController {
 	@Autowired
 	private TodoService todoService;
 	
-
+	@RequestMapping("say-hello")
+	@ResponseBody
+	public String sayHello()
+	{
+		return "hello! What are you learning today?";
+	}
+	
 	@RequestMapping("list-todos")
 	public String listAllTodos(ModelMap model)
 	{
@@ -50,8 +55,6 @@ public class TodoController {
 		{
 			return "addTodo";
 		}
-//		List<Todo> todos = todoService.findByUsername("Monias");
-//		model.addAttribute("todos", todos);\
 		todoService.addnewTodo(todo.getUsername(), todo.getDescription(), todo.getTargetDate(), false);
 		return "redirect:list-todos";
 	}

@@ -3,15 +3,17 @@ package com.devkhunwana.springboot.toDoApp.appImpl;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.Authentication;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jakarta.validation.Valid;
@@ -20,9 +22,23 @@ import jakarta.validation.Valid;
 @SessionAttributes("name")
 public class TodoControllerJpa {
 	
-	@Autowired
+	@RequestMapping("say-hello")
+	@ResponseBody
+	public String sayHello()
+	{
+		return "hello! What are you learning today?";
+	}
+	
+	
 	private TodoRepository todoRepository;
 	
+	
+
+	public TodoControllerJpa(TodoRepository todoRepository) {
+		super();
+		this.todoRepository = todoRepository;
+	}
+
 
 	@RequestMapping("list-todos")
 	public String listAllTodos(ModelMap model)
