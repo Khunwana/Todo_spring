@@ -22,23 +22,12 @@ import jakarta.validation.Valid;
 @SessionAttributes("name")
 public class TodoControllerJpa {
 	
-	@RequestMapping("say-hello")
-	@ResponseBody
-	public String sayHello()
-	{
-		return "hello! What are you learning today?";
-	}
-	
-	
 	private TodoRepository todoRepository;
-	
-	
 
 	public TodoControllerJpa(TodoRepository todoRepository) {
 		super();
 		this.todoRepository = todoRepository;
 	}
-
 
 	@RequestMapping("list-todos")
 	public String listAllTodos(ModelMap model)
@@ -48,7 +37,6 @@ public class TodoControllerJpa {
 		model.addAttribute("todos", todos);
 		return "listTodos";
 	}
-
 
 	@RequestMapping(value="add-todo",method = RequestMethod.GET)
 	public String addTodos(ModelMap model)
@@ -77,6 +65,7 @@ public class TodoControllerJpa {
 		todoRepository.deleteById(id);
 		return "redirect:list-todos";
 	}
+	
 	@RequestMapping(value ="update-todo", method= RequestMethod.GET)
 	public String showUpdateTodo(ModelMap model,@RequestParam int id )
 	{
